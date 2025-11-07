@@ -178,4 +178,4 @@ main: A -- B -- C -- D -- E -- F (HEAD)
 
 ## ⚠️ Precaución
 
-Si se hacen **commits** estando en modo **detached** y luego se cambia de rama, los commits pueden perderse (a menos que se crees una rama antes de salir):
+Si se hacen **commits** estando en modo **detached** y luego se cambia de rama, los commits pueden perderse (a menos que se crees una rama antes de salir)
