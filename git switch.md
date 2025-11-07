@@ -105,6 +105,77 @@ git switch -
 
 - Usar `git switch` para moverse entre contextos de trabajo (ramas o commits).
 
-- Usa `git restore` si quiremos revertir archivos o descartar cambios locales.
+- Usar `git restore` si quiremos revertir archivos o descartar cambios locales.
 
 - Evitar `git checkout` salvo que trabajemos con versiones antiguas de Git.
+
+________________________________________________________________________________________
+
+# Otros comandos.
+
+# 7. `git switch -d HEAD~5`
+ 
+Este un comando relativamente nuevo (desde Git 2.23) que **simplifica el cambio de rama o commit**.
+
+Es una alternativa más clara a `git checkout` cuando se trata solo de **cambiar ramas o commits**.
+
+- `git switch <rama>` → cambia a una rama existente.
+    
+- `git switch --detach <ref> (o -d)` → cambia a un **commit específico en modo “detached HEAD”**.
+
+## 🧠 Qué significa `HEAD~5`
+
+`HEAD` es un puntero al commit actual.
+
+`HEAD~5` significa:
+
+- “El commit que está 5 posiciones antes del commit actual en la misma rama”.
+
+``` css
+A -- B -- C -- D -- E -- F (HEAD)
+```
+
+Entonces:
+
+- `HEAD~1` → E
+
+- `HEAD~2` → D
+
+- `HEAD~5` → B
+
+## ⚙️ Qué hace `-d` o `--detach`
+
+El flag `--detach` (abreviado `-d`) indica que queremos movernos a ese commit sin cambiar de rama, es decir:
+
+- Git posiciona el `HEAD` directamente sobre ese commit (no sobre una rama).
+
+### Esto se llama modo **“detached HEAD”**.
+
+- En este estado se puede explorar el repositorio o hacer pruebas, pero los commits nuevos no estarán vinculados a una rama a menos que se cree una explícitamente.
+
+## 🧾 En conjunto: `git switch -d HEAD~5`
+
+### Este comando hace lo siguiente:
+
+- Mueve el `HEAD 5` commits atrás desde el commit actual.
+
+- Coloca el modo **“detached HEAD”**, es decir, no estamos en ninguna rama.
+
+- Se puede revisar el estado del proyecto como estaba hace 5 commits.
+
+
+``` css
+main: A -- B -- C -- D -- E -- F (HEAD)
+                ↑
+                HEAD~3
+```
+
+- Si se ejecuta `git switch -d HEAD~3`, el puntero se moverá al commit `C`, quedando desconectado de `main`.
+
+- Cuando se termine el trabajo, ya sea de ver, revisar algún commit debemos regresar a una rama, ya sea la principal u otra.
+
+     `git switch main`
+
+## ⚠️ Precaución
+
+Si se hacen **commits** estando en modo **detached** y luego se cambia de rama, los commits pueden perderse (a menos que se crees una rama antes de salir):

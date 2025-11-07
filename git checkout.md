@@ -97,4 +97,19 @@ Si hacemos:
 git checkout B
 ```
 
-El repositorio se moverá al estado del commit **B**, pero el **HEAD** no estará en **main**, sino directamente sobre **B**.
+- El repositorio se moverá al estado del commit **B**, pero el **HEAD** no estará en **main**, sino directamente sobre **B**.
+
+# 3. `git checkout HEAD~5`
+
+- Significa “muévete al commit que está 5 padres atrás desde `HEAD`”.
+
+## Alternativa moderna con `git switch`
+
+    `git switch --detach HEAD~5`
+
+# 🧠 Resumen
+
+| Comando                      | Qué hace                                                        |
+| ---------------------------- | --------------------------------------------------------------- |
+| `git checkout HEAD~5`        | ✅ Cambia al commit 5 padres atrás desde el actual              |
+| `git switch --detach HEAD~5` | ✅ Alternativa moderna y más clara                              |
