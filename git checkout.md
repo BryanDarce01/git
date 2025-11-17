@@ -113,3 +113,19 @@ git checkout B
 | ---------------------------- | --------------------------------------------------------------- |
 | `git checkout HEAD~5`        | ✅ Cambia al commit 5 padres atrás desde el actual              |
 | `git switch --detach HEAD~5` | ✅ Alternativa moderna y más clara                              |
+
+---
+
+# 4. `git checkout HEAD <file>`
+
+Significa:
+
+**Restaurar un archivo específico al estado del commit apuntado por HEAD (normalmente el último commit).**
+
+Es decir, **descarta los cambios locales** en ese archivo y lo deja exactamente como está en el último commit.
+
+## IMPORTANTE:
+
+**Usar la versión actualizada para esto:**
+
+[`git restore`](git%20restore.md)

@@ -179,3 +179,15 @@ main: A -- B -- C -- D -- E -- F (HEAD)
 ## ⚠️ Precaución
 
 Si se hacen **commits** estando en modo **detached** y luego se cambia de rama, los commits pueden perderse (a menos que se crees una rama antes de salir)
+
+# 8. `git switch -`
+
+Git guarda un registro interno del último lugar donde estaba posicionado el **HEAD**, así que cambia a esa referencia anterior.
+
+# 🔎 Importante
+
+- Funciona tanto al alternar ramas como commits (si se hizo `--detach`).
+
+- No acepta argumentos adicionales.
+
+- No crea ramas nuevas; solo se mueve entre referencias ya visitadas.
